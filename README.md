@@ -1,36 +1,39 @@
 # AutoTranslator Hotkey Input Shim
 
+[English](https://github.com/k-chop/XUAHotkeyInputShim/blob/master/README.en.md)
+
 ## ⚠ Disclaimer
 
-> **This plugin was thrown together as a quick-and-dirty fix by someone who knows next to nothing about Unity.**  
-> Use it at your own risk — it merely _works on my machine_.
+> Unity なんも知らん人間が AI 任せで書いた Plugin なので自己責任でご利用ください  
+> 少なくとも自分の環境では動いた
 
-## Why would I need this?
+## 説明
 
-If BepInEx + XUnity.AutoTranslator is installed but **none of the hotkeys work**, drop this DLL into your game and they should start responding.
+BepInEx + AutoTranslator 入れたけどショートカットキーが効かん！という時に入れると解決するかもしれない Plugin
 
-- UI toggle (Alt + 0) is still disabled.
-- It is aimed at users who only need **Alt + R** (reload translations) and **Alt + T** (toggle translations) to function.
+なお UI は開けません。とりあえず `ALT+R` と `ALT+T` が使えりゃいい人向け
 
-## Dependencies
+## 依存
 
 - XUnity.AutoTranslator 5.4.x
 - BepInEx 5.4.x
 
-## How to use
+たぶんちょっとくらい version 前後しても動くけど試してない
 
-- Download dll from [Releases](https://github.com/k-chop/XUAHotkeyInputShim/releases)
-- Copy dll to `<GameFolder>\BepInEx\plugins\XUAHotkeyInputShim.dll`
+## 使い方
 
-## Build (for Developers)
+- [Releases](https://github.com/k-chop/XUAHotkeyInputShim/releases) から dll をダウンロード
+- `<GameFolder>\BepInEx\plugins\XUAHotkeyInputShim.dll` に置いて起動
 
-### Install .NET SDK (WSL2 Ubuntu example)
+## ビルド方法
+
+### .NET SDK のインストール (WSL2 Ubuntu の例)
 
 ```bash
 sudo apt update && sudo apt install -y dotnet-sdk-8.0
 ```
 
-### Prepare reference DLLs
+### DLL ファイルを配置
 
 ```
 <ProjectRoot>/libs/
@@ -42,13 +45,13 @@ sudo apt update && sudo apt install -y dotnet-sdk-8.0
 └─ UnityEngine.dll                   (from <GameName>_Data/Managed)
 ```
 
-### Build
+### ビルド
 
 ```bash
 dotnet build -c Release
 # → bin/Release/netstandard2.1/XUAHotkeyInputShim.dll
 ```
 
-### Deploy
+### デプロイ
 
-- Copy dll to `<GameFolder>\BepInEx\plugins\XUAHotkeyInputShim.dll`
+- `<GameFolder>\BepInEx\plugins\XUAHotkeyInputShim.dll` にできた dll をぶち込む
